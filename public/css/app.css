@@ -532,6 +532,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-6{
   height: 1.5rem;
 }
+.h-2{
+  height: 0.5rem;
+}
+.h-1{
+  height: 0.25rem;
+}
+.h-2\/4{
+  height: 50%;
+}
 .max-h-10{
   max-height: 2.5rem;
 }
@@ -567,6 +576,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-6{
   width: 1.5rem;
+}
+.w-2{
+  width: 0.5rem;
+}
+.w-1{
+  width: 0.25rem;
+}
+.w-2\/4{
+  width: 50%;
 }
 .max-w-7xl{
   max-width: 80rem;
@@ -796,6 +814,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+.py-24{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.px-8{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .pt-8{
   padding-top: 2rem;
 }
@@ -822,6 +848,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-1{
   padding-bottom: 0.25rem;
+}
+.pl-8{
+  padding-left: 2rem;
 }
 .text-center{
   text-align: center;
@@ -1208,6 +1237,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:flex-1{
     flex: 1 1 0%;
   }
+  .lg\:scale-100{
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+  .lg\:scale-50{
+    --tw-scale-x: .5;
+    --tw-scale-y: .5;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+  .lg\:scale-125{
+    --tw-scale-x: 1.25;
+    --tw-scale-y: 1.25;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
   .lg\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1235,6 +1279,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:py-0{
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+  .lg\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .lg\:px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .lg\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   .lg\:pl-4{
     padding-left: 1rem;

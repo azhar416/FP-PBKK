@@ -1,12 +1,11 @@
 <x-main-layout>
     <section>
-        <div class="grid grid-cols-1 lg:grid-cols-2 lg:h-2/4 bg-blue-900">
-            <div class="relative flex items-center  lg:pl-4">
-
-                <div class="relative px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div class=" relative grid grid-cols-1 lg:grid-cols-2 bg-blue-900 h-full">
+            <div class="relative flex items-center  lg:pl-4 h-full">
+                <div class="relative py-24 px-8">
                     <h2 class="text-2xl font-bold text-white sm:text-3xl">Welcome to Ruang Baca TC</h2>
 
-                    <p class="mt-4 text-white">
+                    <p class="mt-4 text-white w-2/4">
                         Sistem Informasi Ruang Baca TC merupakan sistem informasi berbasis online milik RBTC agar
                         memudahkan dosen
                         dan mahasiswa untuk mengakses sumber belajar digital yang disediakan oleh Teknik Informatika ITS
@@ -14,7 +13,7 @@
 
                     {{-- <x-partial.forms.search action='/books' class="mt-6 w-2/3"/> --}}
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-12">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Search" name="search">
                                 <button class="btn btn-primary" type="submit">Search</button>
@@ -24,11 +23,11 @@
                 </div>
                 
                 <span class="absolute -inset-y-0 hidden w-16 bg-blue-900 lg:block -right-16"></span>
-                
             </div>
-            <div class="relative z-10 lg:py-0">
-                <div class="relative h-64 lg:h-full">
-                    <img class="absolute inset-0 object-cover w-full h-full" src="{{ asset('storage/staticImages/dashboard-image.png') }}"
+
+            <div class="relative z-10 lg:py-0 lg:px-6">
+                <div class="relative h-64 lg:h-full ">
+                    <img class="justify-center relative inset-0  lg:scale-100" src="{{ asset('storage/staticImages/dashboard-image.png') }}"
                         alt="" />
                         
                 </div>
