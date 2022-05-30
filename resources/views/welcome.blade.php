@@ -35,7 +35,7 @@
   
     <section>
       <div class="flex justify-between items-center p-2 space-x-">
-        <div class="p-2 flex-1">
+        <div class="p-2 flex-1 text-blue-600 sm:bg-sky-900 md:bg-red-600 lg:bg-black bg-yellow-500">
           {{-- <x-partial.cards.top-border-card logo="monta.png" href='http://monta.if.its.ac.id'>
           </x-partial.cards.top-border-card> --}}
           Tugas Akhir

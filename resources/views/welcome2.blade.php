@@ -49,7 +49,7 @@
                 </div>
             
                 <div class="">
-                    <div class="">
+                    <div class="bg-sky-600">
                         <ul>
                             <a href="http://monta.if.its.ac.id">MonTA</a>   
                         </ul>
