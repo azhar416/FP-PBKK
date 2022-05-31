@@ -25,7 +25,8 @@ class BookFactory extends Factory
             //company error
             'publisher' => $this->faker->company(),
             'year_published' => $this->faker->year(),
-            'description' => $this->faker->text()
+            'description' => $this->faker->text(),
+            'link'=> 'src/' . $this->faker->unique()->numerify('book-#####') . '.pdf'
         ];
     }
 }
