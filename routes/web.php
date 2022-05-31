@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InquiryController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/contact',[InquiryController::class, 'store']);
 });
 
+Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
+    Route::name('.')->group(function () {
+        Route::resource('/books', DashboardBookController::class);
+        Route::resource('/inquiries', DashboardInquiryController::class)->only(['index', 'show', 'delete']);
+        Route::resource('/magazine', MagazineController::class)->only(['store', 'update', 'destroy'])->parameters([
+            'magazine' => 'book'
+        ]);
+        Route::resource('/paper', PaperController::class)->only(['store', 'update', 'destroy'])->parameters([
+            'paper' => 'book'
+        ]);
+        Route::resource('/textbook', TextbookController::class)->only(['store', 'update', 'destroy'])->parameters([
+            'textbook' => 'book'
+        ]);      
+    });
+});
