@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class TextbookController extends Controller
+class DashboardBookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +16,9 @@ class TextbookController extends Controller
     public function index()
     {
         //
+        return view('dashboard.books.indexbook', [
+            'books' => Book::latest()->paginate(20)
+        ]);
     }
 
     /**
@@ -21,9 +26,12 @@ class TextbookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        return view('dashboard.books.create', [
+            'type' => $request->type,
+        ]);
     }
 
     /**
@@ -43,9 +51,10 @@ class TextbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+   
     }
 
     /**
@@ -54,9 +63,13 @@ class TextbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
         //
+        return view('dashboard.books.edit', [
+            'type' => $book->book_type,
+            'book' => $book
+        ]);
     }
 
     /**
@@ -77,8 +90,17 @@ class TextbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
         //
+        Book::destroy($book->id);
+
+        return redirect('/dashboard/books')->with('success', 'Book has been deleted');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Book::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

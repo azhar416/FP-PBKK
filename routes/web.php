@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\DashboardBookController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardInquiryController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\MagazineController;
+use App\Http\Controllers\PaperController;
+use App\Http\Controllers\TextbookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +39,7 @@ Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(fu
     Route::get('/', [DashboardController::class, 'index']);
     Route::name('.')->group(function () {
         Route::resource('/books', DashboardBookController::class);
-        Route::resource('/inquiries', DashboardInquiryController::class)->only(['index', 'show', 'delete']);
+        Route::resource('/inquiries', DashboardInquiryController::class)->only(['index', 'show']);
         Route::resource('/magazine', MagazineController::class)->only(['store', 'update', 'destroy'])->parameters([
             'magazine' => 'book'
         ]);

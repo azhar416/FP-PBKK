@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inquiry;
 use Illuminate\Http\Request;
 
-class TextbookController extends Controller
+class DashboardInquiryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,9 @@ class TextbookController extends Controller
     public function index()
     {
         //
+        return view('dashboard.inquiries.indexinquiry', [
+            'inquiries' => Inquiry::latest()->paginate(20)
+        ]);
     }
 
     /**
@@ -43,9 +47,12 @@ class TextbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Inquiry $inquiry)
     {
         //
+        return view('dashboard.inquiries.show', [
+            'inquiry' => $inquiry
+        ]);
     }
 
     /**
