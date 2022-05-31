@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/contact',[InquiryController::class, 'store']);
 });
 
+Route::get('/checkSlug', [DashboardBookController::class, 'checkSlug'])->name('checkslug');
+
 Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::name('.')->group(function () {
