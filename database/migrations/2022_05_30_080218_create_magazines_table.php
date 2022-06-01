@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('magazines', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('book_id');
+            $table->string('issn')->unique();
             $table->timestamps();
         });
     }

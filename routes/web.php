@@ -50,6 +50,6 @@ Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(fu
         ]);
         Route::resource('/textbook', TextbookController::class)->only(['store', 'update', 'destroy'])->parameters([
             'textbook' => 'book'
-        ]);      
+        ]);
     });
 });

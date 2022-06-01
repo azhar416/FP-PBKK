@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('textbooks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('book_id');
+            $table->string('isbn', 20)->unique();
+            $table->integer('edition');
             $table->timestamps();
         });
     }

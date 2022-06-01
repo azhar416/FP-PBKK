@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('papers', function (Blueprint $table) {
             $table->id();
+            $table->string('doi')->unique()->nullable();
+            $table->foreignId('book_id');
             $table->timestamps();
         });
     }

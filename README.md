@@ -1,64 +1,131 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Kelompok 8 PBKK-B
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+1. Daffa Muhamad Azhar 05111940000037
+2. 
+3. 
+4. 
 
-## About Laravel
+# Tutorial
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Git Clone / Download Repository
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```
+git clone https://github.com/azhar416/FP-PBKK.git
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. Masuk ke folder project
 
-## Learning Laravel
+3. Install composer dengan terminal
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Copy `.env.example` ke `.env`
 
-## Laravel Sponsors
+```
+copy .env.example .env
+```
+atau
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+cp .env.example .env
+```
 
-### Premium Partners
+5. Buka `.env` file dan setting database sesuai yang ada pada perangkat
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+6. Generate key
 
-## Contributing
+```
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Migrate Database
 
-## Code of Conduct
+```
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. Install TailwindCSS
 
-## Security Vulnerabilities
+[Tutorial Instalasi TailwindCSS](https://tailwindcss.com/docs/guides/laravel)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Buka project Laravel
 
-## License
+- Install TailwindCSS
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Install `tailwindcss` and its peer dependencies via npm, and create your `tailwind.config.js` file.
+
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+- Add Tailwind to your Laravel Mix configuration
+
+In your `webpack.mix.js` file, add `tailwindcss` as a PostCSS plugin.
+
+```
+mix.js("resources/js/app.js", "public/js")
+  .postCss("resources/css/app.css", "public/css", [
+    require("tailwindcss"),
+  ]);
+```
+
+- Configure your template paths
+
+Add the paths to all of your template files in your `tailwind.config.js` file.
+
+```
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+- Add the Tailwind directives to your CSS
+
+Add the `@tailwind` directives for each of Tailwind’s layers to your `./resources/css/app.css` file.
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+- Start your build process (Nyalakan terus)
+
+Run your build process with `npm run watch`.
+
+```
+npm run watch
+```
+
+- Start using Tailwind in your project
+
+Make sure your compiled CSS is included in the `<head>` then start using Tailwind’s utility classes to style your content.
+
+```html
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
+```
+
+9. Pastikan `npm run watch` dan `php artisan serve` menyala pada terminal.

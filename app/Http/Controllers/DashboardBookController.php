@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Magazine;
+use App\Models\Paper;
+use App\Models\Textbook;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardBookController extends Controller
 {
@@ -93,6 +97,25 @@ class DashboardBookController extends Controller
     public function destroy(Book $book)
     {
         //
+        Storage::disk('public_uploads')->delete($book->image);
+        Storage::disk('public_uploads')->delete($book->link);
+        
+        if ($book->book_type === 'textbook')
+        {
+            $spesific = Textbook::findOrFail($book->id);
+            Textbook::destroy($spesific->id);
+        } 
+        elseif ($book->book_type === 'paper')
+        {
+            $spesific = Paper::findOrFail($book->id);
+            Paper::destroy($spesific->id);
+        }
+        elseif ($book->book_type === 'magazine')
+        {
+            $spesific = Magazine::findOrFail($book->id);
+            Magazine::destroy($spesific->id);
+        }
+
         Book::destroy($book->id);
 
         return redirect('/dashboard/books')->with('success', 'Book has been deleted');

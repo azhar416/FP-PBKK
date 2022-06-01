@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->enum('type', ['magazine', 'paper', 'textbook']);
-            //
+            $table->string('name');
+            $table->enum('book_type', ['magazine', 'paper', 'textbook']);
+            // auto-input slug
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->string('author');

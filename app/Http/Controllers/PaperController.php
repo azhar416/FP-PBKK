@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
+use App\Models\Paper;
 use Illuminate\Http\Request;
+use App\Traits\BookTrait;
 
 class PaperController extends Controller
 {
+    use BookTrait;
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +39,37 @@ class PaperController extends Controller
     public function store(Request $request)
     {
         //
-       
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|unique:books',
+            'book_type' => 'required|in:magazine,textbook,paper',
+            'image' => 'image|file|max:32768',
+            'publisher' => 'required|max:40',
+            'year_published' => 'required|numeric|min:1900|max:2022',
+            'description' => 'required',
+
+            'author' => 'required|max:40',
+            'category' => 'required|max:30',
+            'doi' => 'unique:papers'
+        ]);
+
+        $filePath = BookTrait::storeFile($request, class_basename(Paper::class));
+        $imagePath = BookTrait::storeImage($request, class_basename(Paper::class));
+
+        $validated += [
+            'author' => null,
+            'category' => null,
+        ];
+
+        $book = BookTrait::createBook($validated, $imagePath, $filePath);
+
+
+        $paper = Paper::create([
+            'book_id' => $book->id,
+            'doi' => $validated['doi'] ?? '',
+        ]);
+
+        return redirect('/dashboard/books')->with('success', 'Paper has been added');
     }
 
     /**
@@ -67,9 +101,44 @@ class PaperController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'book_type' => 'required|in:magazine,textbook,paper',
+            'image' => 'image|file|max:32768',
+            'publisher' => 'required|max:40',
+            'year_published' => 'required|numeric|min:1900|max:2022',
+            'description' => 'required',
+            
+            'author' => 'required|max:40',
+            'category' => 'required|max:30',
+        ]);
+        $filePath = BookTrait::updateFile($request, $book, class_basename(Paper::class));
+        $imagePath = BookTrait::updateImage($request, $book, class_basename(Paper::class));
+
+        if ($request->oldSlug === $request['slug'])
+        {
+            $validated += $request->validate([
+                'slug' => 'required',
+            ]);
+        }
+        else
+        {
+            $validated += $request->validate([
+                'slug' => 'required|unique:books',
+            ]);
+        }
+
+        $attrib = [
+            'doi' => $validated['doi'] ?? '',
+        ];
+
+        BookTrait::updateBook($book->id, $validated, $imagePath ?? $request->oldImage, $filePath ?? $request->oldFile);
+        Paper::where('book_id', $book->id)->update($attrib);
+
+        return redirect('/dashboard/books')->with('success', 'Paper has been updated');
     }
 
     /**
