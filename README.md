@@ -1,7 +1,7 @@
 # Kelompok 8 PBKK-B
 
 1. Daffa Muhamad Azhar 05111940000037
-2. 
+2. Muh. Nur Fajrin Amiruddin - 05111940000005
 3. 
 4. 
 
@@ -43,7 +43,7 @@ php artisan key:generate
 7. Migrate Database
 
 ```
-php artisan key:generate
+php artisan migrate:fresh
 ```
 
 8. Install TailwindCSS
