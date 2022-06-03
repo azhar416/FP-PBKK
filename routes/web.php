@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardBookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardInquiryController;
@@ -33,6 +34,8 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
     Route::get('/contact',[InquiryController::class, 'create']);
     Route::post('/contact',[InquiryController::class, 'store']);
+    Route::resource('/books', BookController::class);
+    Route::get('/books/{book}/read', [BookController::class, 'read']);
 });
 
 Route::get('/checkSlug', [DashboardBookController::class, 'checkSlug'])->name('checkslug');

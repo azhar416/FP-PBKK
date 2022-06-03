@@ -11,15 +11,7 @@
                         dan mahasiswa untuk mengakses sumber belajar digital yang disediakan oleh Teknik Informatika ITS
                     </p>
 
-                    {{-- <x-partial.forms.search action='/books' class="mt-6 w-2/3"/> --}}
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Search" name="search">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </div>
+                    <x-reuse.search action="/books"></x-reuse.search>
                 </div>
                 
                 <span class="absolute -inset-y-0 hidden w-16 bg-blue-900 lg:block -right-16"></span>
