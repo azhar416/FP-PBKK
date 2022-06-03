@@ -43,9 +43,7 @@ trait BookTrait
             'link' => $filePath
         ];
         
-        // Book::where('id', $id)->update($attrib);
-        $data = Book::findOrFail($id);
-        $data->update($attrib);
+        Book::where('id', $id)->update($attrib);
     }
 
     public static function storeFile(Request $request, $type)

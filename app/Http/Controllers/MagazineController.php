@@ -104,18 +104,42 @@ class MagazineController extends Controller
         //
         $validated = $request->validated([
             'ame' => 'required|max:255',
-            'slug' => 'required|unique:books',
             'book_type' => 'required|in:magazine,textbook,paper',
             'image' => 'image|file|max:32768',
             'publisher' => 'required|max:40',
             'year_published' => 'required|numeric|min:1900|max:2022',
             'description' => 'required',
-
-            'issn' => 'required|unique:magazines',
         ]);
+
+        if ($request->oldSlug === $request['slug'])
+        {
+            $validated += $request->validate([
+                'slug' => 'required',
+            ]);
+        }
+        else
+        {
+            $validated += $request->validate([
+                'slug' => 'required|unique:books',
+            ]);
+        }
+
         $filePath = BookTrait::updateFile($request, $book, class_basename(Magazine::class));
         $imagePath = BookTrait::updateImage($request, $book, class_basename(Magazine::class));
 
+        if ($request->oldIssn === $request['issn'])
+        {
+            $validated += $request->validate([
+                'issn' => 'required',
+            ]);
+        }
+        else
+        {
+            $validated += $request->validate([
+                'issn' => 'required|unique:magazines',
+            ]);
+        }
+        
         $attrib = [
             'issn' => $validated['issn'],
         ];

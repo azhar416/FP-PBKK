@@ -20,7 +20,7 @@ return new class extends Migration
             // auto-input slug
             $table->string('slug')->unique();
             $table->string('image')->nullable();
-            $table->string('author');
+            $table->string('author')->nullable();
             $table->string('category')->nullable();
             $table->string('publisher', 64);
             $table->year('year_published');

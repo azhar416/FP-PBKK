@@ -64,7 +64,7 @@ class PaperController extends Controller
         $book = BookTrait::createBook($validated, $imagePath, $filePath);
 
 
-        $paper = Paper::create([
+        Paper::create([
             'book_id' => $book->id,
             'doi' => $validated['doi'] ?? '',
         ]);
@@ -115,9 +115,7 @@ class PaperController extends Controller
             'author' => 'required|max:40',
             'category' => 'required|max:30',
         ]);
-        $filePath = BookTrait::updateFile($request, $book, class_basename(Paper::class));
-        $imagePath = BookTrait::updateImage($request, $book, class_basename(Paper::class));
-
+        
         if ($request->oldSlug === $request['slug'])
         {
             $validated += $request->validate([
@@ -130,6 +128,9 @@ class PaperController extends Controller
                 'slug' => 'required|unique:books',
             ]);
         }
+
+        $filePath = BookTrait::updateFile($request, $book, class_basename(Paper::class));
+        $imagePath = BookTrait::updateImage($request, $book, class_basename(Paper::class));
 
         $attrib = [
             'doi' => $validated['doi'] ?? '',
