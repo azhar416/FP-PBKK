@@ -3,7 +3,7 @@
 1. Daffa Muhamad Azhar 05111940000037
 2. Muh. Nur Fajrin Amiruddin - 05111940000005
 3. Muhammad Valda Rizky Nur Firdaus - 05111940000115
-4. 
+4. Putu Ravindra Wiguna - 5025201237
 
 # Tutorial
 
