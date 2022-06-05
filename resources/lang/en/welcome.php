@@ -1,7 +1,7 @@
 <?php
 return [
 	"welcome" => "Welcome to Ruang Baca TC",
-	"about" => "    Information System Ruang Baca TC is an online information system own by RBTC to
+	"about" => "Ruang Baca TC Information System is an online information system own by RBTC to
     help lecturers
     and college students to access digital learning sources provided by Teknik Informatika ITS
 ",

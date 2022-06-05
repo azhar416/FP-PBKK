@@ -13,9 +13,7 @@
             <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
                 <div class="lg:py-12 lg:col-span-2">
                     <p class="max-w-xl text-lg">
-                        Apabila buku/sumber referensi yang dibutuhkan belum ada, Anda dapat membantu kami menambah
-                        koleksi kami dengan mengisi Form Request Sistem Informasi RBTC. Kami akan segera mencarikan buku yang Anda
-                        butuhkan.
+                        {{ __('form_inquiry.pesan_utama') }}
                     </p>
                 </div>
 
@@ -24,18 +22,17 @@
                         @csrf
                         <div class="block">
                             <select name="type" id="inquiry_type" class="text-md text-gray-500 border-gray-200 rounded-lg w-full transition duration-300 ease-in-out">
-                                <option value="" disabled hidden {{ old('inquiry_type') == '' ? 'selected' : '' }}>Jenis
-                                    Ajuan</option>
+                                <option value="" disabled hidden {{ old('inquiry_type') == '' ? 'selected' : '' }}>{{ __('form_inquiry.ajuan') }}</option>
                                 <option value="complaint" {{ old('inquiry_type') == 'complaint' ? 'selected' : '' }}>
-                                    Keluhan</option>
+                                    {{ __('form_inquiry.keluhan') }}</option>
                                 <option value="request" {{ old('inquiry_type') == 'request' ? 'selected' : '' }}>
-                                    Permintaan</option>
+                                    {{ __('form_inquiry.permintaan') }}</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="sr-only" for="message">Pesan</label>
-                            <textarea class="w-full p-3 text-sm border-gray-200 rounded-lg transition duration-300 ease-in-out" placeholder="Pesan"
+                            <label class="sr-only" for="message">{{ __('form_inquiry.pesan') }}</label>
+                            <textarea class="w-full p-3 text-sm border-gray-200 rounded-lg transition duration-300 ease-in-out" placeholder="{{ __('form_inquiry.default') }}"
                                 rows="8" id="message" name="text"
                                 style="min-height: 4rem; max-height: 20rem">{{ old('text') }}</textarea>
                         </div>
@@ -43,7 +40,7 @@
                         <div class="mt-4 flex justify-end">
                             <button type="submit"
                                 class="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-blue-600 rounded-lg sm:w-auto">
-                                <span class="font-medium"> Submit </span>
+                                <span class="font-medium"> {{ __('form_inquiry.kirim') }} </span>
                             </button>
                         </div>
                     </form>
