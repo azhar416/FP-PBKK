@@ -6,10 +6,9 @@
             </div>
 
             <nav class="hidden text-sm font-medium space-x-8 md:flex">
-                <a href="/" class="{{ Request::is('/') ? 'text-blue-500' : 'text-gray-500' }}">Home</a>
-                <a href="/books" class="{{ Request::is('books') ? 'text-blue-500' : 'text-gray-500' }}">Katalog</a>
-                <a href="/contact" class="{{ Request::is('contact') ? 'text-blue-500' : 'text-gray-500' }}">Hubungi
-                    Kami</a>
+                <a href="/" class="{{ Request::is('/') ? 'text-blue-500' : 'text-gray-500' }}">{{ __('navbar.home') }}</a>
+                <a href="/books" class="{{ Request::is('books') ? 'text-blue-500' : 'text-gray-500' }}">{{ __('navbar.katalog') }}</a>
+                <a href="/contact" class="{{ Request::is('contact') ? 'text-blue-500' : 'text-gray-500' }}">{{ __('navbar.hubungi_kami') }}</a>
             </nav>
 
             @auth
