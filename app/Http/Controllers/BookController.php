@@ -20,7 +20,6 @@ class BookController extends Controller
         else {
             $books = Book::latest();
         }
-        
 
         if(request('search')) {
             $books = $books->search(request('search'));
