@@ -1,7 +1,7 @@
 <x-main-layout>
     <section class="flex flex-col p-5 space-y-2">
         <div class="px-1">
-            <h1 class="font-bold text-3xl text-blue-900">Katalog</h1>
+            <h1 class="font-bold text-3xl text-blue-900">{{ __('navbar.katalog') }}</h1>
         </div>
         <div class="flex p-1 space-x-2">
             {{-- <x-reuse.card class="lg:w-1/6 p-4">
