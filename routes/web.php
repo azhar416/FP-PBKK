@@ -9,6 +9,7 @@ use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\PaperController;
 use App\Http\Controllers\TextbookController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,15 @@ Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(fu
             'textbook' => 'book'
         ]);
     });
+});
+
+// Localization
+Route::get('/set/{locale}', 'App\Http\Controllers\LocalizationController@index');
+
+
+Route::get('/debug', function(){
+    $locale = App::currentLocale();
+    App::setLocale('id');
+    $locale = App::currentLocale();
+    dd($locale);
 });
