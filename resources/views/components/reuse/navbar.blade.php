@@ -35,10 +35,10 @@
                             </x-dropdown-link>
                             @endcan
                             <x-dropdown-link href="/profile/{{ auth()->user()->username }}">
-                                {{ __('Profile') }}
+                                {{ __('navbar.profile') }}
                             </x-dropdown-link>
                             <x-dropdown-link href="">
-                                {{ __('Settings') }}
+                                {{ __('navbar.setting') }}
                             </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -48,7 +48,7 @@
                                         class="text-red-600"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('navbar.logout') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
