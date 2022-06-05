@@ -60,11 +60,3 @@ Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(fu
 
 // Localization
 Route::get('/set/{locale}', 'App\Http\Controllers\LocalizationController@index');
-
-
-Route::get('/debug', function(){
-    $locale = App::currentLocale();
-    App::setLocale('id');
-    $locale = App::currentLocale();
-    dd($locale);
-});
