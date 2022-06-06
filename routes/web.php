@@ -8,6 +8,7 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\PaperController;
 use App\Http\Controllers\TextbookController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/contact',[InquiryController::class, 'store']);
     Route::resource('/books', BookController::class);
     Route::get('/books/{book}/read', [BookController::class, 'read']);
+    Route::get('/profile',[UserController::class, 'showProfile']);
 });
 
 Route::get('/checkSlug', [DashboardBookController::class, 'checkSlug'])->name('checkslug');
