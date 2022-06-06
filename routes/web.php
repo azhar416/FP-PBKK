@@ -59,7 +59,3 @@ Route::prefix('dashboard')->name('dashboard')->middleware('can:admin')->group(fu
 
 // Localization
 Route::get('/set/{locale}', 'App\Http\Controllers\LocalizationController@index');
-
-Route::get('/debug', function(){
-    dd(Auth::user()->email);
-});
