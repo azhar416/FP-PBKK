@@ -9,7 +9,6 @@ use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\PaperController;
 use App\Http\Controllers\TextbookController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
