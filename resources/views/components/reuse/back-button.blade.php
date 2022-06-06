@@ -7,7 +7,7 @@
   </span>
 
   <span class="text-lg font-medium">
-    Back {{ empty($back) ? '' : 'to ' . $back}}
+    {{ __('back.back') }} {{ empty($back) ? '' : 'to ' . $back}}
   </span>
 
 </a>

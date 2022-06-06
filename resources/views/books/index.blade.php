@@ -21,7 +21,7 @@
                             {{ $book->book_type !== 'magazine' ? $book->author : $book->publisher }}
                         </x-slot>
                         <x-slot name='timestamp'>
-                            Added {{ $book->created_at->diffForHumans() }}
+                            {{ __('index.add') }} {{ $book->created_at->diffForHumans() }}
                         </x-slot>
                     </x-reuse.book-card>
                     @endforeach

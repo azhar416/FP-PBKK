@@ -22,7 +22,7 @@
                             <table class="table-auto">
                                 <tbody>
                                     <tr>
-                                        <td>Type </td>
+                                        <td>{{ __('show.type') }} </td>
                                         <td>: {{ ucfirst($book->book_type) }}</td>
                                     </tr>
                                     @if (isset($book->paper->doi))
@@ -32,22 +32,22 @@
                                         </tr>
                                     @endif
                                     <tr>
-                                        <td>Publisher </td>
+                                        <td>{{ __('show.publisher') }} </td>
                                         <td>: {{ $book->publisher }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Year Published </td>
+                                        <td>{{ __('show.year_pub') }} </td>
                                         <td>: {{ $book->year_published }}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <p class="mt-3 text-blue-600 font-bold">Description</p>
+                            <p class="mt-3 text-blue-600 font-bold">{{ __('show.desc') }}</p>
                             <p>{{ $book->description }}</p>
                         </div>
                     </div>
                     <div class="flex flex-col justify-end h-1/4 ">
                         <a href="/books/{{ $book->slug }}/read"
-                            class="block bg-blue-600 p-2 rounded-md text-white text-center drop-shadow-md">Read</a>
+                            class="block bg-blue-600 p-2 rounded-md text-white text-center drop-shadow-md">{{ __('show.read') }}</a>
                     </div>
                 </div>
             </div>
