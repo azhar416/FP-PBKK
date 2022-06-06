@@ -27,7 +27,7 @@
           <p class="text-gray-400 text-xs">{{ $timestamp }}</p>
         </div>
         <span class="inline-block px-5 py-3 text-xs font-bold text-white bg-blue-600 rounded group-hover:opacity-75">
-          Details
+          {{ __('index.detail') }}
         </span>
       </div>
   
