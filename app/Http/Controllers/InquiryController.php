@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Events\RBTCFormSubmitted;
 use App\Models\Inquiry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InquiryController extends Controller
 {
@@ -48,6 +49,9 @@ class InquiryController extends Controller
             'text' => $validated['text'],
         ]);
         // dd($inquiry);
+
+        // Create event RBTCForm Submitted
+        event(new RBTCFormSubmitted(Auth::user()->email));
 
         return redirect('/contact')->with('success', 'Pesan anda berhasil dikirim');
     }
