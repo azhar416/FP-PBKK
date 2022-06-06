@@ -3,66 +3,11 @@
         <div class="px-1">
             <h1 class="font-bold text-3xl text-blue-900">{{ __('navbar.katalog') }}</h1>
         </div>
-        <div class="flex p-1 space-x-2">
-            {{-- <x-reuse.card class="lg:w-1/6 p-4">
-                <h2 class="text-lg">Kategori</h2>
-                <form action="" class="">
-                    @if (request('sort'))
-                        <input type="hidden" name="sort" value="{{ request('sort') }}">
-                    @endif
-                    @if (request('search'))
-                        <input type="hidden" name="search" value="{{ request('search') }}">
-                    @endif
-                    <div class="p-4 space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox" name="book_type[]" id="textbook" class="border-gray-300 w-6 h-6" 
-                            value="textbook" {{ (is_array(request('book_type')) && in_array("textbook", request('book_type'))) ? ' checked' : '' }}>
-                            <label for="textbook" class="ml-3 text-sm font-medium">Textbook</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" name="book_type[]" id="majalah" class="border-gray-300 w-6 h-6" 
-                            value="magazine" {{ (is_array(request('book_type')) && in_array("magazine", request('book_type'))) ? ' checked' : '' }} >
-                            <label for="majalah" class="ml-3 text-sm font-medium">Majalah</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" name="book_type[]" id="paper" class="border-gray-300 w-6 h-6" 
-                            value="paper" {{ (is_array(request('book_type')) && in_array("paper", request('book_type'))) ? ' checked' : '' }}>
-                            <label for="paper" class="ml-3 text-sm font-medium">Paper</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-700 p-2 text-xs font-medium text-white rounded-md">Apply Filter</button>
-                </form>
-            </x-reuse.card> --}}
-            <div class="space-y-1 lg:w-5/6 px-1">
+        <div class="flex p-1 space-x-2 items-center">
+            <div class="space-y-1 px-1">
                 <x-reuse.search action="/books">
-                {{-- @if (request('sort'))
-                    <input type="hidden" name="sort" value="{{ request('sort') }}">
-                @endif
-                @if (request('book_type'))
-                            @foreach (request('book_type') as $type)
-                                <input type="hidden" name="book_type[]" value="{{ $type }}">
-                            @endforeach
-                        @endif --}}
                 </x-reuse.search>
-                {{-- <div class="flex justify-end ">
-                    <span class="text-xs text-gray-600 self-end">Showing 10 of 30 entries</span>
-                    <form action="" method="get">
-                        @if (request('search'))
-                            <input type="hidden" name="search" value="{{ request('search') }}">
-                        @endif
-                        @if (request('book_type'))
-                            @foreach (request('book_type') as $type)
-                                <input type="hidden" name="book_type[]" value="{{ $type }}">
-                            @endforeach
-                        @endif
-                        <label for="sort" class="sr-only">Sort</label>
-                        <select name="sort" id="sort" class="text-sm border-gray-200 rounded-sm" onchange="if(this.value != '') { this.form.submit(); }">
-                            <option value="" disabled hidden {{ request('sort') == '' ? 'selected' : ''}}>Sort by</option>
-                            <option value="asc" {{ request('sort') == 'asc' ? 'selected' : ''}}>Oldest</option>
-                            <option value="desc" {{ request('sort') == 'desc' ? 'selected' : ''}}>Newest</option>
-                        </select>
-                    </form>
-                </div> --}}
+                
                 <div class="grid grid-cols-3 grid-rows-3 gap-2 py-1">
                     @foreach ($books as $book)
                     <x-reuse.book-card :bookType="$book->book_type" :link='$book->slug' :image='$book->image'>

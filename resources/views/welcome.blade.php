@@ -28,24 +28,24 @@
     <section>
         <div class="flex justify-between items-center p-2 space-x-">
             <div class="p-2 flex-1">
-                {{-- <x-partial.cards.top-border-card logo="monta.png" href='http://monta.if.its.ac.id'>
-          </x-partial.cards.top-border-card> --}}
-                {{ __('welcome.tugas_akhir') }}
+                <x-reuse.top-border-card logo="monta.png" href='http://monta.if.its.ac.id'>
+                    {{ __('welcome.tugas_akhir') }}
+                </x-reuse.top-border-card.top-border-card>
             </div>
             <div class="p-2 flex-1">
-                {{-- <x-partial.cards.top-border-card logo="book.png" href='/books'>
-          </x-partial.cards.top-border-card> --}}
-                {{ __('welcome.buku') }}
+                <x-reuse.top-border-card logo="book.png" href='/books'>
+                    {{ __('welcome.buku') }}
+                </x-reuse.top-border-card.top-border-card>
             </div>
             <div class="p-2 flex-1">
-                {{-- <x-partial.cards.top-border-card logo="magz.png" href='/books'>
-          </x-partial.cards.top-border-card> --}}
-                {{ __('welcome.majalah') }}
+                <x-reuse.top-border-card logo="magz.png" href='/books'>
+                    {{ __('welcome.majalah') }}
+                </x-reuse.top-border-card.top-border-card>
             </div>
             <div class="p-2 flex-1">
-                {{-- <x-partial.cards.top-border-card logo="paper.png" href='/books'>
-          </x-partial.cards.top-border-card> --}}
-                {{ __('welcome.research_paper') }}
+                <x-reuse.top-border-card logo="paper.png" href='/books'>
+                    {{ __('welcome.research_paper') }}
+                </x-reuse.top-border-card.top-border-card>
             </div>
         </div>
     </section>
