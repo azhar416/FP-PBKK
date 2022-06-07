@@ -3,7 +3,7 @@
         <x-reuse.back-button :href="url()->previous()" class="mx-3 my-2" />
     </div>
     <div class="relative flex flex-col items-center">
-        <div class="flex space-x-3 px-1 py-2 w-3/4 justify-between items-center">
+        <div class="flex space-x-3 px-1 py-2 w-3/4 justify-center">
            <h1 class="text-3xl font-bold text-blue-600"> {{ $book->name }} </h1>
         </div>
 
